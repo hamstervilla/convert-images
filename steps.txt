@@ -1,0 +1,3 @@
+- open folder in vs code
+- open terminal met command + `
+- node convert.js
