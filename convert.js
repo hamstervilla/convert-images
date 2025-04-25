@@ -16,7 +16,13 @@ fs.readdir(inputDir, (err, files) => {
     return;
   }
 
-  files.forEach(file => {
+  // Filter for supported image formats
+  const imageFiles = files.filter(file => {
+    const ext = path.extname(file).toLowerCase();
+    return ['.jpg', '.jpeg', '.png', '.tiff', '.webp', '.gif'].includes(ext);
+  });
+
+  imageFiles.forEach(file => {
     const inputFilePath = path.join(inputDir, file);
     const outputFilePath = path.join(outputDir, `${path.parse(file).name}.webp`);
 
